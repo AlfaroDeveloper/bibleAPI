@@ -99,11 +99,9 @@ app.get('/verse/:book/:chapter/:verse', (req,res) => {
                veresText
             });
             bibleVerseSearchedFor = bible_Verse_Html_Verse_Text[bible_Verse_Html_Verse_Text.length - 1];
+            res.json(bibleVerseSearchedFor);
             // End of Bible Verse =============================================================================
     }).catch((err) => console.log(err));
-    res.json({
-        bibleVerseSearchedFor
-    });
 });
 
 app.listen(PORT, () => {console.log(`Listening On Port:${PORT}`)});
