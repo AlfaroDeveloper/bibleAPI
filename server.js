@@ -98,7 +98,7 @@ app.get('/verse/:book/:chapter/:verse', (req,res) => {
             bible_Verse_Html_Verse_Text.push({
                veresText
             });
-            bibleVerseSearchedFor = getWhatYouSearchedFor(bible_Verse_Html_Verse_Text);
+            bibleVerseSearchedFor = bible_Verse_Html_Verse_Text[bible_Verse_Html_Verse_Text.length - 1];
             // End of Bible Verse =============================================================================
     }).catch((err) => console.log(err));
     res.json({
