@@ -90,14 +90,17 @@ app.get('/verse/:book/:chapter/:verse', (req,res) => {
             // himalaya converting data to json
             let bible_Verse_Html_To_Json =   parse(bible_Verse_Html );
             // Going through json and grabbing bible verse
-            let bible_Verse_Html_To_Json_Response = bible_Verse_Html_To_Json[1].children[0].children[42].children[0].content;
-            // Splitting string where we can take away unnecessary words
-            let bible_Verse_Html_Verse_Array = bible_Verse_Html_To_Json_Response.split('|');
-            // Grabbing bible verse from first index
-            let veresText = bible_Verse_Html_Verse_Array[0];
+            let bible_Verse_Html_To_Json_Response_Verse = bible_Verse_Html_To_Json[1].children[1].children[4].children[4].children[1].children[0].children[0].children[0].children[0].content;
+            let bible_Verse_Html_To_Json_Response_Text = bible_Verse_Html_To_Json[1].children[1].children[4].children[4].children[1].children[0].children[0].children[1].children[0].content;
+            // assigning verse and verse text to variables
+            let verse =  bible_Verse_Html_To_Json_Response_Verse;
+            let verseText =  bible_Verse_Html_To_Json_Response_Text; 
+            // adding them to array
             bible_Verse_Html_Verse_Text.push({
-               veresText
+                verse,
+               verseText
             });
+            // Grabbing bible verse from first index
             bibleVerseSearchedFor = bible_Verse_Html_Verse_Text[bible_Verse_Html_Verse_Text.length - 1];
             res.json(bibleVerseSearchedFor);
             // End of Bible Verse =============================================================================
